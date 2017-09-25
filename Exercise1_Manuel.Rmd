@@ -1,0 +1,39 @@
+---
+title: "Exercise1 Manuel Waller"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+Hello, this is a document to summarize my results for exercise 1. First I created 100 random values of a lognormal distribution with mu=1 and sigma=0.25. Those values were then directly stored under the objectname "Datasample".
+```{r}
+Datasample <- rlnorm(100, 1, 0.25)
+```
+This randomly generated datasample looks as follows:
+```{r}
+Datasample
+```
+
+Mean and variance of this randomly generated datasample were then calculated with the following command-lines:
+```{r}
+mean(Datasample)
+```
+```{r}
+var(Datasample)
+```
+The mean of the Datasample is 2.810455 and the variance 0.638443.
+
+Finally, I generated a histogram to get an idea of the samples distribution:
+```{r}
+ hist(Datasample, freq = F, ylim=c(0, 0.8), breaks = seq(from=1, to=6, by=0.2))
+```
+
+Another task was to generate a histogram of the sample-values to show the distribution on the log-scale. I understood that it was expected to generate a histogram with a log-scale y-axis. However, I couldn`t come up with a quick solution to that, so I simply calculated the logs of the values of the datasample and showed those calculated logs in a "normal" histogram. I hope this will do for the moment...
+```{r}
+LogDatasample <- log(Datasample)
+```
+```{r}
+hist(LogDatasample, breaks = seq(from=0, to=2, by=0.1))
+```
+
